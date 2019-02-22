@@ -19,10 +19,7 @@ class WebhookController < ApplicationController
 			deployment = repository.deployments.find_by branch: ref_name
 			return false if deployment.nil?
 
-			file = File.open('events.txt', 'a')
-			file.write('pushed to ' + repo_name + ' ' + ref_name)
-			file.write('should execute ' + deployment.script)
-			file.close
+			RunDeploymentJob.perform_later(deployment)
 
 			return true
 		end
