@@ -1,0 +1,10 @@
+h1
+  span Editing deployment for
+  span = @repository.name
+
+= link_to "Back to repository", repository_path(@repository)
+
+= form_for(@deployment, {url: repository_deployment_path, action: 'update'}) do |f|
+  div
+    = f.text_area :script
+  = f.submit

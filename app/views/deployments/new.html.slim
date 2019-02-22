@@ -1,0 +1,7 @@
+h1
+  span New deployment for
+  span = @repository.name
+
+= form_for(@deployment, url: repository_deployment_path) do |f|
+  = f.text_area :script
+  = f.submit

@@ -1,0 +1,14 @@
+h1 = @repository.name
+
+div
+  = link_to "Back to all repositories", repositories_path
+
+div
+  - if @repository.deployment.nil?
+    = link_to "Set up deployment", new_repository_deployment_path(@repository)
+
+  - else
+    pre
+      code
+        = @repository.deployment.script
+    = link_to "Edit deployment", edit_repository_deployment_path(@repository)

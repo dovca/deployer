@@ -1,0 +1,6 @@
+h1 Connect a new repository
+
+= form_for(@repository, url: repositories_path) do |f|
+  = f.label :name, "Repository name"
+  = f.text_field :name
+  = f.submit "Save"
