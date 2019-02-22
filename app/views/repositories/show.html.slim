@@ -3,12 +3,10 @@ h1 = @repository.name
 div
   = link_to "Back to all repositories", repositories_path
 
-div
-  - if @repository.deployment.nil?
-    = link_to "Set up deployment", new_repository_deployment_path(@repository)
+ul
+  - @repository.deployments.each do |d|
+    li
+      = d.branch
+      = link_to "Edit deployment", edit_repository_deployment_path(@repository, d)
 
-  - else
-    pre
-      code
-        = @repository.deployment.script
-    = link_to "Edit deployment", edit_repository_deployment_path(@repository)
+= link_to "Set up new deployment", new_repository_deployment_path(@repository)

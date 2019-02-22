@@ -1,3 +1,3 @@
 class Repository < ApplicationRecord
-	has_one :deployment
+	has_many :deployments
 end

@@ -1,7 +1,11 @@
 h1
-  span New deployment for
-  span = @repository.name
+  span New deployment for #{@repository.name}
 
-= form_for(@deployment, url: repository_deployment_path) do |f|
-  = f.text_area :script
+= form_for(@deployment, url: repository_deployments_path) do |f|
+  div
+    = f.label "Branch", :branch
+    = f.text_field :branch
+  div
+    = f.label "Script", :script
+    = f.text_area :script
   = f.submit

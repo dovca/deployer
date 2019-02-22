@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_22_165736) do
+ActiveRecord::Schema.define(version: 2019_02_22_210108) do
 
   create_table "deployments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "script"
     t.bigint "repository_id"
+    t.string "branch"
     t.index ["repository_id"], name: "index_deployments_on_repository_id"
   end
 
