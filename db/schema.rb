@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_22_210108) do
+ActiveRecord::Schema.define(version: 2019_02_22_214935) do
 
   create_table "deployments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2019_02_22_210108) do
     t.string "script"
     t.bigint "repository_id"
     t.string "branch"
+    t.boolean "autorun", default: false, null: false
+    t.boolean "is_pending", default: false, null: false
     t.index ["repository_id"], name: "index_deployments_on_repository_id"
   end
 

@@ -28,6 +28,6 @@ class DeploymentsController < ApplicationController
 
 	private
 		def deployment_params
-			params.require(:deployment).permit(:script, :branch)
+			params.require(:deployment).permit(:script, :branch, :autorun)
 		end
 end
